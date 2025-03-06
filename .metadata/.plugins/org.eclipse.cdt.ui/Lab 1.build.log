@@ -1,0 +1,23 @@
+14:03:59 **** Incremental Build of configuration Debug for project Lab 1 ****
+make -r -j8 all 
+Building file: ../source/lab1_1.s.s
+Invoking: MCU Assembler
+arm-none-eabi-gcc -c -x assembler-with-cpp -D__REDLIB__ -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 1\board" -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 1\source" -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 1" -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 1\drivers" -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 1\CMSIS" -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 1\startup" -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 1\utilities" -g3 -gdwarf-4 -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -o "source/lab1_1.s.o" "../source/lab1_1.s.s"
+Finished building: ../source/lab1_1.s.s
+ 
+Building target: Lab 1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="Lab 1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m0plus -mthumb -T Lab_1_Debug.ld -o "Lab 1.axf" ./utilities/fsl_debug_console.o ./utilities/fsl_io.o ./utilities/fsl_log.o ./utilities/fsl_str.o  ./startup/startup_mkl46z4.o  ./source/lab1_1.s.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_ftfx_cache.o ./drivers/fsl_ftfx_controller.o ./drivers/fsl_ftfx_flash.o ./drivers/fsl_ftfx_flexnvm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_lpsci.o ./drivers/fsl_smc.o ./drivers/fsl_uart.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o  ./CMSIS/system_MKL46Z4.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:        2956 B       256 KB      1.13%
+            SRAM:        4320 B        32 KB     13.18%
+Finished building target: Lab 1.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "Lab 1.axf"; # arm-none-eabi-objcopy -v -O binary "Lab 1.axf" "Lab 1.bin" ; # checksum -p MKL46Z256xxx4 -d "Lab 1.bin";
+   text	   data	    bss	    dec	    hex	filename
+   2956	      0	   4320	   7276	   1c6c	Lab 1.axf
+ 
+
+14:04:00 Build Finished. 0 errors, 0 warnings. (took 578ms)
+

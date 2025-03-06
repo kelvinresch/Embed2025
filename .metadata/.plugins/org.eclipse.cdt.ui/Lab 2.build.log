@@ -1,0 +1,23 @@
+23:21:26 **** Incremental Build of configuration Debug for project Lab 2 ****
+make -r -j8 all 
+Building file: ../source/ECE3140_lowlevel.s
+Invoking: MCU Assembler
+arm-none-eabi-gcc -c -x assembler-with-cpp -D__REDLIB__ -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 2\board" -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 2\source" -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 2" -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 2\drivers" -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 2\CMSIS" -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 2\startup" -I"C:\Users\Kelvi\Documents\MCUXpressoIDE_24.12.148\workspace\Lab 2\utilities" -g3 -gdwarf-4 -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -specs=redlib.specs -o "source/ECE3140_lowlevel.o" "../source/ECE3140_lowlevel.s"
+Finished building: ../source/ECE3140_lowlevel.s
+ 
+Building target: Lab 2.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="Lab 2.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m0plus -mthumb -T Lab_2_Debug.ld -o "Lab 2.axf" ./utilities/fsl_debug_console.o ./utilities/fsl_io.o ./utilities/fsl_log.o ./utilities/fsl_str.o  ./startup/startup_mkl46z4.o  ./source/ECE3140Lab2.o ./source/ECE3140_lowlevel.o ./source/led.o ./source/test_part1.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_ftfx_cache.o ./drivers/fsl_ftfx_controller.o ./drivers/fsl_ftfx_flash.o ./drivers/fsl_ftfx_flexnvm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_lpsci.o ./drivers/fsl_smc.o ./drivers/fsl_uart.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o  ./CMSIS/system_MKL46Z4.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:        6008 B       256 KB      2.29%
+            SRAM:        4356 B        32 KB     13.29%
+Finished building target: Lab 2.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "Lab 2.axf"; # arm-none-eabi-objcopy -v -O binary "Lab 2.axf" "Lab 2.bin" ; # checksum -p MKL46Z256xxx4 -d "Lab 2.bin";
+   text	   data	    bss	    dec	    hex	filename
+   5988	     20	   4336	  10344	   2868	Lab 2.axf
+ 
+
+23:21:26 Build Finished. 0 errors, 0 warnings. (took 756ms)
+

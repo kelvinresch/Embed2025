@@ -1,0 +1,76 @@
+#include <MKL46Z4.h>
+#include "ECE3140Lab2.h"
+#include "led.h"
+
+volatile uint8_t green_state = 0;
+
+void main(void){
+	/*
+	 * Initialize the microcontroller and LEDs
+	 */
+	set15MHz();
+	led_init();
+	/*
+	 * Enable the clock to go to the PIT by setting the
+	 * 23rd bit of SIM_SCGC6 high
+	 */
+	SIM->SCGC6 |= SIM_SCGC6_PIT_MASK;
+
+	/*
+	 * Enable the PIT module by setting the 2nd bit of the PIT's
+	 * MCR register low
+	 */
+	PIT->MCR &= !PIT_MCR_MDIS_MASK;
+
+	/*
+	 * Set load value of PIT to 0.
+	 */
+//	PIT->CHANNEL[0].LDVAL = 0x10000000;
+	PIT->CHANNEL[0].LDVAL = 0x86E360;
+
+	/*
+	 * Enable the interrupt and timer on the PIT module
+	 */
+	PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK | PIT_TCTRL_TEN_MASK;
+
+	/*
+	 * Tie the PIT timer to the interrupt handler so that it calls
+	 * PIT_IRQHandler when the PIT flags its TFLG register.
+	 */
+	NVIC_EnableIRQ(22);
+
+	while(1) {
+		red_toggle();
+		delay(1000);
+	}
+}
+
+void PIT_IRQHandler(void) {
+    // Clear the interrupt flag
+    PIT->CHANNEL[0].TFLG = 1;
+
+    // If the green LED is on, then set the PIT to 100 ms
+    // If the green LED is off, set the PIT to 900 ms.
+    if (green_state) {
+    	green_toggle();
+    	green_state = 0;
+    	PIT->CHANNEL[0].LDVAL = 0x0016E360;
+//    	PIT->MCR |= PIT_MCR_MDIS_MASK;
+//    	delay(1);
+//    	PIT->MCR &= !PIT_MCR_MDIS_MASK;
+    } else {
+    	green_toggle();
+    	green_state = 1;
+    	PIT->CHANNEL[0].LDVAL = 0x00CDFE60;
+//    	PIT->MCR |= PIT_MCR_MDIS_MASK;
+//    	delay(1);
+//    	PIT->MCR &= !PIT_MCR_MDIS_MASK;
+    }
+}
+
+
+
+
+
+
+
