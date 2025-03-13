@@ -17,9 +17,9 @@
 #define PROCESS_H_
 
 struct process_state{
-	//
-	//YOU NEED TO PUT OTHER DATA HERE
-	//
+	void (* function)(void);// Function pointer to the process start function
+	void * sp; 				// Stack pointer for context switching
+	void * prev_sp; 	// Stack pointer to the stack that the process switched from
 	struct process_state * next; // keep this definition for en/de-queue
 };
 

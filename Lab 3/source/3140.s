@@ -123,7 +123,7 @@ PIT_IRQHandler: // Timer Interrupt
 				
 do_process_select:
 				CPSID i  // Disable all interrupts (again)
-				 	// process_termianted can get here with interrupts on
+				 	// process_terminated can get here with interrupts on
 
 				// Run on the "main" stack to help reduce funkiness when a
 				// process stack is small and process_select overwrites other

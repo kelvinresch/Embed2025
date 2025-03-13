@@ -6,8 +6,15 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="delay"/>
+		<item key="selection" value="do_proc"/>
 		<list key="findhistory">
+			<item value="do_proc"/>
+			<item value="FFFF"/>
+			<item value="exc"/>
+			<item value="ecx"/>
+			<item value="OrigStack"/>
+			<item value="0x40037"/>
+			<item value="0x400371"/>
 			<item value="delay"/>
 			<item value="all_"/>
 			<item value="set_led"/>
@@ -16,13 +23,6 @@
 			<item value="tflg"/>
 			<item value="PIT_TYPE"/>
 			<item value="LDVAL"/>
-			<item value="PIT_Type"/>
-			<item value="MCR"/>
-			<item value="scgc6"/>
-			<item value="leds"/>
-			<item value="bit_five"/>
-			<item value="bit_fire"/>
-			<item value="GPIO_Type"/>
 		</list>
 		<list key="replacehistory">
 		</list>
